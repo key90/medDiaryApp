@@ -44,11 +44,12 @@
       background-color: #16a085;
     }
     input, textarea {
-      width: 100%;
+      width: 90%; /* Уменьшена ширина */
       padding: 10px;
       margin-bottom: 10px;
       border-radius: 5px;
       border: 1px solid #7f8c8d;
+      margin-left: 5%;
     }
     .section {
       display: none;
@@ -109,9 +110,9 @@
       cursor: pointer;
     }
     .tiles {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 иконки в ряд */
-      gap: 20px;
+      display: flex;
+      flex-wrap: wrap;  /* Изменен на flex-wrap */
+      justify-content: space-around; /* Равномерно распределено */
       margin-top: 20px;
     }
     .tile {
@@ -122,6 +123,9 @@
       text-align: center;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      margin: 10px;
+      flex-basis: 30%; /* Задаем минимальную ширину */
+      max-width: 180px;
     }
     .tile:hover {
       background-color: #16a085;
@@ -129,6 +133,17 @@
     .tile i {
       font-size: 3rem;
       margin-bottom: 10px;
+    }
+
+    /* Адаптация для мобильных устройств */
+    @media (max-width: 768px) {
+      .tile {
+        flex-basis: 45%; /* Иконки будут занимать 45% на мобильных */
+      }
+      input, textarea {
+        width: 90%; /* Ширина формы на мобильных */
+        margin-left: 5%;
+      }
     }
   </style>
 </head>
